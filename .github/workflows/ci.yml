@@ -30,6 +30,11 @@ jobs:
     - name: Install dependencies
       run: npm install
 
+    - name: Hello world
+      run: echo Hello world $REACT_APP_SHEET_ID!
+      env:
+        REACT_APP_SHEET_ID: ${{ secrets.REACT_APP_SHEET_ID }}
+
     - name: Build
       run: npm run build
       env:
