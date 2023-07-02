@@ -1,14 +1,26 @@
-import React from 'react';
-import './App.css';
+import * as React from 'react';
+import Container from '@mui/material/Container';
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
+import PrimaryAppBar from './AppBar';
+import RentList from './RentList';
+import { styled } from '@mui/material/styles';
 
-function App() {
+const Offset = styled('div')(({ theme }) => theme.mixins.toolbar);
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Rent Wroslaw</h1>
-      </header>
-    </div>
+    <Box>
+      <PrimaryAppBar />
+      <Offset />
+      <Container>
+        <Box sx={{ my: 4 }}>
+          <Typography variant="h4" component="h1" gutterBottom>
+            Rent Wroslaw 21
+          </Typography>
+          <RentList />
+        </Box>
+      </Container>
+    </Box>
   );
 }
-
-export default App;
