@@ -32,6 +32,10 @@ jobs:
 
     - name: Build
       run: npm run build
+      env:
+        REACT_APP_SHEET_ID: ${{ secrets.REACT_APP_SHEET_ID }}
+        REACT_APP_GOOGLE_PRIVATE_KEY: ${{ secrets.REACT_APP_GOOGLE_PRIVATE_KEY }}
+        REACT_APP_GOOGLE_SERVICE_ACCOUNT_EMAIL: ${{ secrets.REACT_APP_GOOGLE_SERVICE_ACCOUNT_EMAIL }}
 
     - name: Deploy
       run: |
