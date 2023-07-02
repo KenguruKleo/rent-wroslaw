@@ -162,7 +162,7 @@ export default function PrimaryAppBar(props: PrimaryAppBarProps) {
                   onChange={() => props.setShowAll(!props.showAll)}
                 />
               }
-              label="iOS style"
+              label="Show All"
             />
           </FormGroup>
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
