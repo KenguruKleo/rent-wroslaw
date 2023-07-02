@@ -14,6 +14,8 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
+import { GoogleSpreadsheetRow } from 'google-spreadsheet';
+import { Box, Link } from '@mui/material';
 
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
@@ -30,7 +32,16 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
   }),
 }));
 
-export default function RentItem() {
+type RentItemProps = {
+  item: GoogleSpreadsheetRow
+}
+
+const defaultImageLink = "https://destinations.ru/images/sights/poland/sight-big-rinochnaya-ploshchad-v-varshave.jpg"
+
+export default function RentItem(props: RentItemProps) {
+  const {item} = props;
+  console.log(item)
+
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
@@ -38,11 +49,11 @@ export default function RentItem() {
   };
 
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ width: 360 }}>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            R
+            {item["Num"]}
           </Avatar>
         }
         action={
@@ -50,20 +61,26 @@ export default function RentItem() {
             <MoreVertIcon />
           </IconButton>
         }
-        title="Shrimp and Chorizo Paella"
-        subheader="September 14, 2016"
+        title={item['Info']}
+        subheader={item['Price']}
       />
       <CardMedia
         component="img"
         height="194"
-        image="https://destinations.ru/images/sights/poland/sight-big-rinochnaya-ploshchad-v-varshave.jpg"
+        image={
+          item['ImageLink'] ? item['ImageLink'] : defaultImageLink
+        }
         alt="wroslaw"
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-          This impressive paella is a perfect party dish and a fun meal to cook
-          together with your guests. Add 1 cup of frozen peas along with the mussels,
-          if you like.
+          {
+            (item['Next call / visit'] || '')
+              .split('\n')
+              .map((textItem: any, idx: number) => (
+                  <li key={idx}>{textItem}</li>
+              ))
+          }
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
@@ -73,6 +90,14 @@ export default function RentItem() {
         <IconButton aria-label="share">
           <ShareIcon />
         </IconButton>
+        <Box display="flex" justifyContent="space-between" alignItems="center" width="100%">
+          <Link href={item['Link']} variant="body1" color="text.secondary">
+            Open Link
+          </Link>
+          <Typography variant="body1" color="text.secondary">
+            {item['Contacted'] ? `${item['Contacted']}` : "Not contacted"}
+          </Typography>
+        </Box>
         <ExpandMore
           expand={expanded}
           onClick={handleExpandClick}

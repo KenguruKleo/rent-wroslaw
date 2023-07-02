@@ -12,8 +12,15 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
+import { FormGroup, FormControlLabel } from '@mui/material';
+import IOSSwitch from './common/IOSSwitch';
 
-export default function PrimaryAppBar() {
+type PrimaryAppBarProps = {
+  showAll: boolean
+  setShowAll: (val: boolean) => void
+}
+
+export default function PrimaryAppBar(props: PrimaryAppBarProps) {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
     React.useState<null | HTMLElement>(null);
@@ -143,9 +150,21 @@ export default function PrimaryAppBar() {
               textDecoration: 'none',
             }}
           >
-            Rent Wroslaw
+            RW
           </Typography>
           <Box sx={{ flexGrow: 1 }} />
+          <FormGroup>
+            <FormControlLabel
+              control={
+                <IOSSwitch
+                  sx={{ m: 1 }}
+                  checked={props.showAll}
+                  onChange={() => props.setShowAll(!props.showAll)}
+                />
+              }
+              label="iOS style"
+            />
+          </FormGroup>
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             <IconButton size="large" aria-label="show 4 new mails" color="inherit">
               <Badge badgeContent={4} color="error">
