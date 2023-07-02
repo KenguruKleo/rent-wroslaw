@@ -150,7 +150,7 @@ export default function PrimaryAppBar(props: PrimaryAppBarProps) {
               textDecoration: 'none',
             }}
           >
-            RW
+            RentWr
           </Typography>
           <Box sx={{ flexGrow: 1 }} />
           <FormGroup>
@@ -159,7 +159,10 @@ export default function PrimaryAppBar(props: PrimaryAppBarProps) {
                 <IOSSwitch
                   sx={{ m: 1 }}
                   checked={props.showAll}
-                  onChange={() => props.setShowAll(!props.showAll)}
+                  onChange={() => {
+                    console.log('Switch to', !props.showAll)
+                    props.setShowAll(!props.showAll)
+                  }}
                 />
               }
               label="Show All"

@@ -40,7 +40,7 @@ const defaultImageLink = "https://destinations.ru/images/sights/poland/sight-big
 
 export default function RentItem(props: RentItemProps) {
   const {item} = props;
-  console.log(item)
+  // console.log(item)
 
   const [expanded, setExpanded] = React.useState(false);
 
@@ -51,6 +51,12 @@ export default function RentItem(props: RentItemProps) {
   return (
     <Card sx={{ width: 360 }}>
       <CardHeader
+        sx={{
+          '& .MuiCardHeader-subheader': {
+            color: 'success.main',
+            fontWeight: 600
+          },
+        }}
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
             {item["Num"]}
