@@ -19,9 +19,6 @@ export default function App() {
       <Offset />
       <Container>
         <Box sx={{ my: 4 }}>
-          {/* <Typography variant="h4" component="h1" gutterBottom>
-            Rent Wroslaw 2023
-          </Typography> */}
           <RentList showAll={showAll} />
         </Box>
       </Container>
