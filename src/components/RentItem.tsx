@@ -9,13 +9,12 @@ import Collapse from '@mui/material/Collapse';
 import Avatar from '@mui/material/Avatar';
 import IconButton, { IconButtonProps } from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import { red } from '@mui/material/colors';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { GoogleSpreadsheetRow } from 'google-spreadsheet';
 import { Box, Link } from '@mui/material';
-import { isLikedStatus } from '../helpers';
+import { getColorByStatus, isLikedStatus } from '../helpers';
 
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
@@ -48,6 +47,8 @@ export default function RentItem(props: RentItemProps) {
     setExpanded(!expanded);
   };
 
+  const [bageColor, bageBackground] = getColorByStatus(item['Status'])
+
   return (
     <Card sx={{ width: 360 }}>
       <CardHeader
@@ -58,7 +59,7 @@ export default function RentItem(props: RentItemProps) {
           },
         }}
         avatar={
-          <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
+          <Avatar sx={{ bgcolor: bageBackground, color: bageColor }} aria-label="recipe">
             {item["Num"]}
           </Avatar>
         }
