@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/rent-wroslaw/static/css/main.10feea72.chunk.css",
-    "main.js": "/rent-wroslaw/static/js/main.750e22e7.chunk.js",
-    "main.js.map": "/rent-wroslaw/static/js/main.750e22e7.chunk.js.map",
+    "main.js": "/rent-wroslaw/static/js/main.ad086bdd.chunk.js",
+    "main.js.map": "/rent-wroslaw/static/js/main.ad086bdd.chunk.js.map",
     "runtime-main.js": "/rent-wroslaw/static/js/runtime-main.0378aa7f.js",
     "runtime-main.js.map": "/rent-wroslaw/static/js/runtime-main.0378aa7f.js.map",
     "static/js/2.0b0983bf.chunk.js": "/rent-wroslaw/static/js/2.0b0983bf.chunk.js",
@@ -20,6 +20,6 @@
     "static/js/runtime-main.0378aa7f.js",
     "static/js/2.0b0983bf.chunk.js",
     "static/css/main.10feea72.chunk.css",
-    "static/js/main.750e22e7.chunk.js"
+    "static/js/main.ad086bdd.chunk.js"
   ]
 }
