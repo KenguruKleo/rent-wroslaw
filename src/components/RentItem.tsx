@@ -13,7 +13,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { GoogleSpreadsheetRow } from 'google-spreadsheet';
-import { Box, Link } from '@mui/material';
+import { Box, Button, Link, TextField } from '@mui/material';
 import { getColorByStatus, isLikedStatus } from '../helpers';
 
 interface ExpandMoreProps extends IconButtonProps {
@@ -32,20 +32,32 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
 }));
 
 type RentItemProps = {
-  item: GoogleSpreadsheetRow
+  item: GoogleSpreadsheetRow,
+  handleRefresh: () => void
 }
 
 const defaultImageLink = "https://destinations.ru/images/sights/poland/sight-big-rinochnaya-ploshchad-v-varshave.jpg"
 
+const NEXT_ACTION = 'Next call / visit'
+
 export default function RentItem(props: RentItemProps) {
   const {item} = props;
-  // console.log(item)
+  const [comment, setComment] = React.useState('')
+  console.log(item)
 
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+
+  const onSubmitClick = async () => {
+    const newVal = comment + '\n' + item[NEXT_ACTION]
+    item[NEXT_ACTION] = newVal
+    await item.save()
+    setComment('')
+    props.handleRefresh()
+  }
 
   const [bageColor, bageBackground] = getColorByStatus(item['Status'])
 
@@ -54,7 +66,7 @@ export default function RentItem(props: RentItemProps) {
       <CardHeader
         sx={{
           '& .MuiCardHeader-subheader': {
-            color: 'success.main',
+            color: 'primary.main',
             fontWeight: 600
           },
         }}
@@ -82,7 +94,7 @@ export default function RentItem(props: RentItemProps) {
       <CardContent>
         <Typography variant="body2" color="text.secondary">
           {
-            (item['Next call / visit'] || '')
+            (item[NEXT_ACTION] || '')
               .split('\n')
               .map((textItem: any, idx: number) => (
                   <li key={idx}>{textItem}</li>
@@ -121,7 +133,7 @@ export default function RentItem(props: RentItemProps) {
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
           <Typography paragraph>
-            Contact person: {item['Contact person']}
+            <b>Contact person:</b> {item['Contact person']}
           </Typography>
           <Typography paragraph>
             {
@@ -137,8 +149,24 @@ export default function RentItem(props: RentItemProps) {
             }
           </Typography>
           <Typography paragraph>
-            Cat: {item['Cat']}
+            <b>Cat</b>: {item['Cat']}
           </Typography>
+          <TextField
+            required
+            id="add-comment"
+            label="Add comment / next action"
+            sx={{width: "100%"}}
+            value={comment}
+            onChange={(event) => setComment(event.target.value)}
+          />
+          <Button
+            variant="outlined"
+            sx={{mt: 1}}
+            disabled={!comment}
+            onClick={onSubmitClick}
+          >
+            Submit
+          </Button>
         </CardContent>
       </Collapse>
     </Card>

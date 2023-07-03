@@ -7,7 +7,8 @@ import { isAvailable } from '../helpers';
 
 type RentListProps = {
   showAll: boolean,
-  refreshedOn: number
+  refreshedOn: number,
+  handleRefresh: () => void
 }
 
 export default function RentList(props: RentListProps) {
@@ -41,7 +42,11 @@ export default function RentList(props: RentListProps) {
         rows
           .filter(item => props.showAll || isAvailable(item['Status']))
           .map(item => (
-            <RentItem item={item} key={item['Num']} />
+            <RentItem
+              item={item}
+              handleRefresh={props.handleRefresh}
+              key={item['Num']}
+            />
           ))
       }
     </Grid>

@@ -19,7 +19,7 @@ import IOSSwitch from './common/IOSSwitch';
 type PrimaryAppBarProps = {
   showAll: boolean
   setShowAll: (val: boolean) => void,
-  setRefreshedOn: (val: number) => void,
+  handleRefresh: () => void,
 }
 
 export default function PrimaryAppBar(props: PrimaryAppBarProps) {
@@ -175,7 +175,7 @@ export default function PrimaryAppBar(props: PrimaryAppBarProps) {
             edge="start"
             color="inherit"
             aria-label="refresh"
-            onClick={() => props.setRefreshedOn(new Date().getTime())}
+            onClick={() => props.handleRefresh()}
           >
             <Refresh />
           </IconButton>
