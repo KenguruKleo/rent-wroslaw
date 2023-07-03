@@ -81,7 +81,7 @@ export default function RentItem(props: RentItemProps) {
           </IconButton>
         }
         title={item['Info']}
-        subheader={item['Price']}
+        subheader={`${item['Price']} / ${item['Total']}`}
       />
       <CardMedia
         component="img"
