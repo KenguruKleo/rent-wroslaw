@@ -16,6 +16,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { GoogleSpreadsheetRow } from 'google-spreadsheet';
 import { Box, Link } from '@mui/material';
+import { isLikedStatus } from '../helpers';
 
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
@@ -90,12 +91,16 @@ export default function RentItem(props: RentItemProps) {
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
-        </IconButton>
-        <IconButton aria-label="share">
+        {
+          isLikedStatus(item['Status']) && (
+            <IconButton aria-label="add to favorites">
+            <FavoriteIcon color='secondary' />
+          </IconButton>
+          )
+        }
+        {/* <IconButton aria-label="share">
           <ShareIcon />
-        </IconButton>
+        </IconButton> */}
         <Box display="flex" justifyContent="space-between" alignItems="center" width="100%">
           <Link href={item['Link']} variant="body1" color="text.secondary">
             Open Link

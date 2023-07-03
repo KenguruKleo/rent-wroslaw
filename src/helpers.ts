@@ -16,6 +16,16 @@ export const availableStauses = [
   Status.RESERVE,
 ]
 
+export const likedStauses = [
+  Status.NEED_TO_CALL,
+  Status.WAIT_FOR_RESPONSE,
+  Status.WAIT_FOR_VIEW,
+]
+
 export const isAvailable = (status: Status): boolean => {
   return availableStauses.includes(status)
+}
+
+export const isLikedStatus = (status: Status): boolean => {
+  return likedStauses.includes(status)
 }
