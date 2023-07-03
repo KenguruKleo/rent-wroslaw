@@ -47,7 +47,7 @@ export const getColorByStatus = (status: Status): [string, string] => {
     case Status.NOT_MATCH:
       return ["#ffffff", red[900]]
     case Status.NOT_AVAILABLE:
-      return ["#ffffff", green[500]]
+      return ["#ffffff", red[500]]
     default:
       return ["#ffffff", red[500]]
   }
