@@ -124,7 +124,7 @@ export default function RentItem(props: RentItemProps) {
                 .split('\n')
                 .map((textItem: any, idx: number) => (
                     <li key={idx}>
-                      <Link href={`tel:${(textItem || '').replaceAll(' ', '')}`} underline="none">
+                      <Link href={`tel:+48${(textItem || '').replaceAll(' ', '')}`} underline="none">
                         Call: {textItem}
                       </Link>
                     </li>
