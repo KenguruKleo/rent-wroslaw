@@ -6,7 +6,8 @@ import { Grid } from '@mui/material';
 import { isAvailable } from '../helpers';
 
 type RentListProps = {
-  showAll: boolean
+  showAll: boolean,
+  refreshedOn: number
 }
 
 export default function RentList(props: RentListProps) {
@@ -20,7 +21,7 @@ export default function RentList(props: RentListProps) {
       const resRows = await dataSheet.getRows()
       setRows(resRows)
     })
-  }, [])
+  }, [props.refreshedOn])
 
   if (rows.length === 0) {
     return (

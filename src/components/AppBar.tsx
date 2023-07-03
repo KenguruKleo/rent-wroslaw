@@ -8,6 +8,7 @@ import Badge from '@mui/material/Badge';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
+import Refresh from '@mui/icons-material/Refresh';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
@@ -17,7 +18,8 @@ import IOSSwitch from './common/IOSSwitch';
 
 type PrimaryAppBarProps = {
   showAll: boolean
-  setShowAll: (val: boolean) => void
+  setShowAll: (val: boolean) => void,
+  setRefreshedOn: (val: number) => void,
 }
 
 export default function PrimaryAppBar(props: PrimaryAppBarProps) {
@@ -150,7 +152,7 @@ export default function PrimaryAppBar(props: PrimaryAppBarProps) {
               textDecoration: 'none',
             }}
           >
-            RentWr
+            RW
           </Typography>
           <Box sx={{ flexGrow: 1 }} />
           <FormGroup>
@@ -165,9 +167,18 @@ export default function PrimaryAppBar(props: PrimaryAppBarProps) {
                   }}
                 />
               }
-              label="Show All"
+              label="All"
             />
           </FormGroup>
+          <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="refresh"
+            onClick={() => props.setRefreshedOn(new Date().getTime())}
+          >
+            <Refresh />
+          </IconButton>
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             <IconButton size="large" aria-label="show 4 new mails" color="inherit">
               <Badge badgeContent={4} color="error">
