@@ -66,7 +66,7 @@ export default function RentItem(props: RentItemProps) {
       <CardHeader
         sx={{
           '& .MuiCardHeader-subheader': {
-            color: 'primary.main',
+            color: 'secondary.main',
             fontWeight: 600
           },
         }}
@@ -81,7 +81,7 @@ export default function RentItem(props: RentItemProps) {
           </IconButton>
         }
         title={item['Info']}
-        subheader={`${item['Price']} / ${item['Total']}`}
+        subheader={item['Address']}
       />
       <CardMedia
         component="img"
@@ -92,6 +92,9 @@ export default function RentItem(props: RentItemProps) {
         alt="wroslaw"
       />
       <CardContent>
+        <Typography variant="body1" color="primary.main" fontWeight={600}>
+          {`${item['Price']} / ${item['Total']}`}
+        </Typography>
         <Typography variant="body2" color="text.secondary">
           {
             (item[NEXT_ACTION] || '')
@@ -114,7 +117,7 @@ export default function RentItem(props: RentItemProps) {
           <ShareIcon />
         </IconButton> */}
         <Box display="flex" justifyContent="space-between" alignItems="center" width="100%">
-          <Link href={item['Link']} variant="body1" color="text.secondary">
+          <Link href={item['Link']} variant="body1" color="text.secondary" target='_blank'>
             Open Link
           </Link>
           <Typography variant="body1" color="text.secondary">
