@@ -61,15 +61,23 @@ export default function RentItem(props: RentItemProps) {
 
   const [bageColor, bageBackground] = getColorByStatus(item['Status'])
 
+  const SubHeader = () => (
+    <Link
+      href={`https://www.google.com/maps/place/Wroc%C5%82aw, ${item['Address']}`}
+      target='_blank'
+      sx={{
+          color: 'secondary.main',
+          fontWeight: 600
+      }}
+    >
+      {item['Address']}
+    </Link>
+  )
+
   return (
     <Card sx={{ width: 360 }}>
       <CardHeader
-        sx={{
-          '& .MuiCardHeader-subheader': {
-            color: 'secondary.main',
-            fontWeight: 600
-          },
-        }}
+        
         avatar={
           <Avatar sx={{ bgcolor: bageBackground, color: bageColor }} aria-label="recipe">
             {item["Num"]}
@@ -81,7 +89,7 @@ export default function RentItem(props: RentItemProps) {
           </IconButton>
         }
         title={item['Info']}
-        subheader={item['Address']}
+        subheader={<SubHeader />}
       />
       <CardMedia
         component="img"
