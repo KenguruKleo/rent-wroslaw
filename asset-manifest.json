@@ -1,12 +1,12 @@
 {
   "files": {
     "main.css": "/rent-wroslaw/static/css/main.10feea72.chunk.css",
-    "main.js": "/rent-wroslaw/static/js/main.129fdd1e.chunk.js",
-    "main.js.map": "/rent-wroslaw/static/js/main.129fdd1e.chunk.js.map",
+    "main.js": "/rent-wroslaw/static/js/main.ee471a0d.chunk.js",
+    "main.js.map": "/rent-wroslaw/static/js/main.ee471a0d.chunk.js.map",
     "runtime-main.js": "/rent-wroslaw/static/js/runtime-main.4d0054a9.js",
     "runtime-main.js.map": "/rent-wroslaw/static/js/runtime-main.4d0054a9.js.map",
-    "static/js/2.102f0cfb.chunk.js": "/rent-wroslaw/static/js/2.102f0cfb.chunk.js",
-    "static/js/2.102f0cfb.chunk.js.map": "/rent-wroslaw/static/js/2.102f0cfb.chunk.js.map",
+    "static/js/2.8cc2e867.chunk.js": "/rent-wroslaw/static/js/2.8cc2e867.chunk.js",
+    "static/js/2.8cc2e867.chunk.js.map": "/rent-wroslaw/static/js/2.8cc2e867.chunk.js.map",
     "static/js/3.69e3ceb4.chunk.js": "/rent-wroslaw/static/js/3.69e3ceb4.chunk.js",
     "static/js/3.69e3ceb4.chunk.js.map": "/rent-wroslaw/static/js/3.69e3ceb4.chunk.js.map",
     "index.html": "/rent-wroslaw/index.html",
@@ -14,12 +14,12 @@
     "service-worker.js.LICENSE.txt": "/rent-wroslaw/service-worker.js.LICENSE.txt",
     "service-worker.js.map": "/rent-wroslaw/service-worker.js.map",
     "static/css/main.10feea72.chunk.css.map": "/rent-wroslaw/static/css/main.10feea72.chunk.css.map",
-    "static/js/2.102f0cfb.chunk.js.LICENSE.txt": "/rent-wroslaw/static/js/2.102f0cfb.chunk.js.LICENSE.txt"
+    "static/js/2.8cc2e867.chunk.js.LICENSE.txt": "/rent-wroslaw/static/js/2.8cc2e867.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.4d0054a9.js",
-    "static/js/2.102f0cfb.chunk.js",
+    "static/js/2.8cc2e867.chunk.js",
     "static/css/main.10feea72.chunk.css",
-    "static/js/main.129fdd1e.chunk.js"
+    "static/js/main.ee471a0d.chunk.js"
   ]
 }
